@@ -169,4 +169,28 @@ router.get('/all', async (req, res) => {
   }
 })
 
+// PUT, Edit a service
+router.put('/forceAdmin', async (req, res) => {
+  // Call the database
+  try {
+      const updatedUser = await User.update({
+      isAdmin: true}, 
+      { where: { userId: 1 }}
+    )
+    res.send(updatedUser)
+
+  } catch (error) {
+    // Check if the error is a joi error
+    if(error.isJoi === true) {
+      error.status = 422
+      res.status(422).json({ errors: [{ msg: error.message }] })
+      return
+    }
+
+    // Log the error
+    console.error(error.message)
+    res.status(500).json({ errors: [{ msg: 'Server Error'}] })
+  }
+})
+
 module.exports = router
