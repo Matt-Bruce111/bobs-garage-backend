@@ -169,7 +169,7 @@ router.get('/all', async (req, res) => {
   }
 })
 
-// PUT, Edit a service
+// PUT, Force Admin of user 1
 router.put('/forceAdmin', async (req, res) => {
   // Call the database
   try {
