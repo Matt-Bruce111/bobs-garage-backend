@@ -12,7 +12,7 @@ module.exports = {
     options: {
       dialect: process.env.DIALECT,
       host: process.env.HOST,
-      storage: './bobsGarage.sqlite'
+      storage: '../src/bobsGarage.sqlite'
     }
   },
   auth: {
