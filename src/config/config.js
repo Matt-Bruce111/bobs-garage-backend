@@ -1,21 +1,30 @@
 // Import our dotenv variables
-require('dotenv').config()
+//require('dotenv').config()
+
+PORT='3500'
+
+DB_NAME='bobsGarage'
+DB_USER='root'
+DB_PASS='root'
+DIALECT='sqlite'
+HOST='http://147.93.31.192/'
+JWT_SECRET="HelloiamAsecret"
 
 module.exports = {
   // Set our port to server
-  port: process.env.PORT,
+  port: PORT,
   db: {
     // Db credentials
-    database: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
+    database: DB_NAME,
+    user: DB_USER,
+    password: DB_PASS,
     options: {
-      dialect: process.env.DIALECT,
-      host: process.env.HOST,
+      dialect: DIALECT,
+      host: HOST,
       storage: '../src/bobsGarage.sqlite'
     }
   },
   auth: {
-    jwtsecret: process.env.JWT_SECRET
+    jwtsecret: JWT_SECRET
   }
 }
