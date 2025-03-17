@@ -11,12 +11,20 @@ const config = require('../config/config')
 // Init db variable
 let db = {}
 
+DB_NAME='bobsGarage'
+DB_USER='root'
+DB_PASS='root'
+DIALECT='sqlite'
+
 // Create new sequelize instance
 const sequelize = new Sequelize(
-  config.db.database,
-  config.db.user,
-  config.db.password,
-  config.db.options 
+  DB_NAME,
+  DB_USER,
+  DB_PASS,
+  {
+    host: 'http://147.93.31.192/',
+    dialect: DIALECT,
+  }
 );
 
 // Create Services Model
